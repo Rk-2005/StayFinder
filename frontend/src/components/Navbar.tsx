@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { FiSearch, FiPlusCircle, FiHome, FiCalendar } from 'react-icons/fi';
-import axios from 'axios';
+
 import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 
 function Navbar() {
-  const [msg, setmsg] = useState("");
-  const [listings, setListings] = useState("");
+  
+  
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [role, setRole] = useState("");
   const navigate = useNavigate();
@@ -16,8 +16,10 @@ function Navbar() {
     if (token) {
       try {
         const decoded = jwtDecode(token);
+       
         console.log(decoded)
         // Assuming your JWT payload looks like { ..., role: "admin" }
+        //@ts-ignore
         setRole(decoded.role || "user");
       } catch (err) {
         console.error("Failed to decode token", err);
@@ -26,13 +28,7 @@ function Navbar() {
     }
   }, [token]);
 
-  useEffect(() => {
-    const getres = async () => {
-      const res = await axios.get(`http://localhost:3000/api/bulk/${msg}`);
-      setListings(res.data);
-    };
-    if (msg) getres();
-  }, [msg]);
+  
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -65,7 +61,7 @@ function Navbar() {
               <input
                 type="text"
                 className="block w-full pl-10 pr-4 py-2.5 rounded-full border border-gray-200 focus:border-rose-300 focus:ring-1 focus:ring-rose-200 outline-none transition-all duration-200 bg-gray-50 hover:bg-white text-sm font-medium"
-                onChange={(e) => setmsg(e.target.value)}
+                
                 placeholder="Search destinations, homes, experiences..."
               />
               <button className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-rose-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rose-700 transition-colors shadow-sm">

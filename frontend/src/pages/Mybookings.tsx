@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { FiCalendar, FiCheckCircle, FiXCircle, FiLoader, FiClock } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ function Mybookings() {
         });
         setBookings(response.data.bookings);
       } catch (err) {
-        setError(err.response?.data?.message || 'Failed to fetch bookings');
+        
       } finally {
         setLoading(false);
       }
@@ -36,20 +36,20 @@ function Mybookings() {
     }
   }, [token, navigate]);
 
-  const cancelBooking = async (bookingId) => {
+  const cancelBooking = async (bookingId:any) => {
     try {
       await axios.delete(`http://localhost:3000/api/bookings/${bookingId}`, {
         headers: {
           Authorization: `${token}`
         }
       });
-      setBookings(bookings.filter(booking => booking._id !== bookingId));
-    } catch (err) {
+      
+    } catch (err:any) {
       setError(err.response?.data?.message || 'Failed to cancel booking');
     }
   };
 
-  const getBookingStatus = (startDate, endDate) => {
+  const getBookingStatus = (startDate:any, endDate:any) => {
     const now = dayjs();
     const start = dayjs(startDate);
     const end = dayjs(endDate);
@@ -115,7 +115,7 @@ function Mybookings() {
           </div>
         ) : (
           <div className="space-y-6">
-            {bookings.map((booking) => {
+            {bookings.map((booking:any) => {
               const status = getBookingStatus(booking.startDate, booking.endDate);
               const listing = booking.listing;
 

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { FiSearch, FiPlusCircle, FiHome, FiCalendar } from 'react-icons/fi';
-import axios from 'axios';
+
 import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import ListingDetails from '../pages/ListingDetails';
 
 function Navbar() {
   const [msg, setmsg] = useState("");
-  const [listings, setListings] = useState("");
+
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [role, setRole] = useState("");
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function Navbar() {
         const decoded = jwtDecode(token);
         console.log(decoded)
         // Assuming your JWT payload looks like { ..., role: "admin" }
+        //@ts-ignore
         setRole(decoded.role || "user");
       } catch (err) {
         console.error("Failed to decode token", err);
@@ -27,13 +28,6 @@ function Navbar() {
     }
   }, [token]);
 
-  useEffect(() => {
-    const getres = async () => {
-      const res = await axios.get(`http://localhost:3000/api/bulk/${msg}`);
-      setListings(res.data);
-    };
-    if (msg) getres();
-  }, [msg]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

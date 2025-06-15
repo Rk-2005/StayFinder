@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { FiHome, FiMapPin, FiDollarSign, FiUpload, FiPlusCircle } from "react-icons/fi";
@@ -16,11 +16,11 @@ function AddListings() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e:any) => {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
@@ -28,7 +28,7 @@ function AddListings() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     setIsSubmitting(true);
     setMessage({ text: "", type: "" });
@@ -54,7 +54,7 @@ function AddListings() {
         return;
       }
 
-      const res = await axios.post("http://localhost:3000/api/listings", data, {
+        await axios.post("http://localhost:3000/api/listings", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `${token}`,
@@ -71,7 +71,7 @@ function AddListings() {
     } catch (error) {
       console.error(error);
       setMessage({ 
-        text: error.response?.data?.message || "Failed to add listing", 
+        text: "Failed to add listing", 
         type: "error" 
       });
     } finally {

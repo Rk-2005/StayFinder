@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { FiHome, FiEdit, FiTrash2, FiPlus, FiLoader } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +21,7 @@ function MyListings() {
           }
         });
         setListings(response.data.listings);
-      } catch (err) {
+      } catch (err:any) {
         setError(err.response?.data?.message || 'Failed to fetch listings');
       } finally {
         setLoading(false);
@@ -42,8 +42,8 @@ function MyListings() {
           Authorization: `${token}`
         }
       });
-      setListings(listings.filter(listing => listing.id !== id));
-    } catch (err) {
+      setListings(listings.filter((listing:any) => listing.id !== id));
+    } catch (err:any) {
       setError(err.response?.data?.message || 'Failed to delete listing');
     }
   };
@@ -104,9 +104,9 @@ function MyListings() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {listings.map((listing) => (
+            {listings.map((listing:any) => (
               <div
-                key={listing._id}
+                key={listing.id}
                 onClick={() => navigate(`/listing/${listing.id}/details`)}
                 className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
               >
@@ -141,7 +141,7 @@ function MyListings() {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          navigate(`/edit-listing/${listing._id}`);
+                          navigate(`/edit-listing/${listing.id}`);
                         }}
                         className="p-2 text-gray-600 hover:text-rose-600 hover:bg-rose-50 rounded-full transition-colors"
                       >

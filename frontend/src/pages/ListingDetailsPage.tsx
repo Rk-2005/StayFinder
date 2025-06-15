@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
@@ -19,7 +19,7 @@ function ListingDetailsPage() {
           }
         });
         setListing(res.data);
-      } catch (err) {
+      } catch (err:any) {
         setError(err.response?.data?.message || 'Failed to fetch listing details');
       } finally {
         setLoading(false);
@@ -92,7 +92,7 @@ function ListingDetailsPage() {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Bookings</h2>
         {listing.result?.length > 0 ? (
           <ul className="space-y-4">
-            {listing.result.map((booking, index) => (
+            {listing.result.map((booking:any, index:any) => (
               <li key={index} className="bg-white border rounded-md p-4 shadow-sm">
                 <p className="text-gray-800 font-medium">👤 {booking.user?.name || 'Unknown User'}</p>
                 <p className="text-gray-600">📧 {booking.user?.email || 'N/A'}</p>

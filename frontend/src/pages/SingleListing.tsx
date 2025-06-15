@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
-import { FiStar, FiMapPin, FiCalendar, FiDollarSign, FiHome, FiUser, FiCheckCircle } from 'react-icons/fi';
+import { FiStar, FiMapPin, FiHome, FiCheckCircle } from 'react-icons/fi';
 import dayjs from 'dayjs';
 
 function SingleListing() {
@@ -48,7 +48,7 @@ function SingleListing() {
         return;
       }
 
-      const response = await axios.post(
+       await axios.post(
         `http://localhost:3000/api/bookings`,
         {
           listingId: id,
@@ -66,7 +66,7 @@ function SingleListing() {
       setTimeout(() => {
         navigate('/my-bookings');
       }, 2000);
-    } catch (err) {
+    } catch (err:any) {
       setError(err.response?.data?.message || 'Failed to create booking');
     } finally {
       setIsBooking(false);
