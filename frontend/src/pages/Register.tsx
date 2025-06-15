@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
   const [formData, setFormData] = React.useState({
@@ -9,7 +9,7 @@ function Register() {
     password: '',
     role: 'user'
   });
-
+  const navigate=useNavigate();
   const handleChange = (e:any) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -30,6 +30,7 @@ function Register() {
       });
       console.log(res.data);
       localStorage.setItem("token",res.data.token);
+      navigate("/")
     }catch(e){
       alert("failed"+e)
     }
