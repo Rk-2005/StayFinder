@@ -14,6 +14,9 @@ app.use("/api/listings",listings)
 app.use("/api/bookings",bookingsRoutes)
 app.use("/api/bulk",bulkroute);
 
+app.get("/",(req:any,res:any)=>{
+    req.send("Welcome to rk server")
+})
 app.listen(3000,()=>{
     console.log("server is runnig on port 3000")
 })
