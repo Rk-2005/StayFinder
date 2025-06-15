@@ -10,7 +10,7 @@ function ListingDetails({ msg }: any) {
     const fetchListings = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:3000/api/bulk/${msg}`);
+        const res = await axios.get(`https://stayfinder-juli.onrender.com/api/bulk/${msg}`);
         setListings(res.data?.results || []);
       } catch (err) {
         console.error("Error fetching listings:", err);

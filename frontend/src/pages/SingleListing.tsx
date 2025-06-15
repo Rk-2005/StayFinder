@@ -21,7 +21,7 @@ function SingleListing() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/listings/${id}`);
+        const res = await axios.get(`https://stayfinder-juli.onrender.com/api/listings/${id}`);
         setListing(res.data.GetallListings[0]);
       } catch (err) {
         setError('Failed to fetch listing details');
@@ -49,7 +49,7 @@ function SingleListing() {
       }
 
        await axios.post(
-        `http://localhost:3000/api/bookings`,
+        `https://stayfinder-juli.onrender.com/api/bookings`,
         {
           listingId: id,
           checkIn: bookingDates.startDate,

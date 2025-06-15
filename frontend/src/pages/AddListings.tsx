@@ -54,7 +54,7 @@ function AddListings() {
         return;
       }
 
-        await axios.post("http://localhost:3000/api/listings", data, {
+        await axios.post("https://stayfinder-juli.onrender.com/api/listings", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `${token}`,

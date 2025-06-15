@@ -16,7 +16,7 @@ function Mybookings() {
     const fetchBookings = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:3000/api/bookings/getallbooking', {
+        const response = await axios.get('https://stayfinder-juli.onrender.com/api/bookings/getallbooking', {
           headers: {
             Authorization: `${token}`
           }
@@ -38,7 +38,7 @@ function Mybookings() {
 
   const cancelBooking = async (bookingId:any) => {
     try {
-      await axios.delete(`http://localhost:3000/api/bookings/${bookingId}`, {
+      await axios.delete(`https://stayfinder-juli.onrender.com/api/bookings/${bookingId}`, {
         headers: {
           Authorization: `${token}`
         }

@@ -15,7 +15,7 @@ function MyListings() {
     const fetchListings = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:3000/api/listings/getUserListings', {
+        const response = await axios.get('https://stayfinder-juli.onrender.com/api/listings/getUserListings', {
           headers: {
             Authorization: `${token}`
           }
@@ -37,7 +37,7 @@ function MyListings() {
 
   const handleDelete = async (id: any) => {
     try {
-      await axios.delete(`http://localhost:3000/api/listings/${id}`, {
+      await axios.delete(`https://stayfinder-juli.onrender.com/api/listings/${id}`, {
         headers: {
           Authorization: `${token}`
         }

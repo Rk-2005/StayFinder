@@ -13,7 +13,7 @@ function ListingDetailsPage() {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/listings/details/${id}`, {
+        const res = await axios.get(`https://stayfinder-juli.onrender.com/api/listings/details/${id}`, {
           headers: {
             Authorization: `${token}`
           }

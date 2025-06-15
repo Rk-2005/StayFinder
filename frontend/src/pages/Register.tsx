@@ -22,7 +22,7 @@ function Register() {
     e.preventDefault();
     try{
       console.log(formData);
-      const res=await axios.post("http://localhost:3000/api/auth/register",{
+      const res=await axios.post("https://stayfinder-juli.onrender.com/api/auth/register",{
         name:formData.name,
         email:formData.email,
         password:formData.password,

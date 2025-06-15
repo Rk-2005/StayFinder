@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = async(e:any) => {
     e.preventDefault();
     try{
-    const res=await axios.post(`http://localhost:3000/api/auth/signin`,{
+    const res=await axios.post(`https://stayfinder-juli.onrender.com/api/auth/signin`,{
       email,
       password
     })
