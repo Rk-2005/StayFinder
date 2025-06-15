@@ -1,6 +1,6 @@
 # 🏡 StayFinder
 
-StayFinder is a full-stack Airbnb-inspired web application that allows users to discover, book, and list properties for short-term and long-term stays. Built with modern web technologies, StayFinder offers a smooth user experience for both guests and hosts.
+StayFinder is a full-stack web application that allows users to discover, book, and list properties for short-term and long-term stays. Built with modern web technologies, StayFinder offers a smooth user experience for both guests and hosts.
 
 🌍 **Live Demo**: [https://stay-finder-nu.vercel.app](https://stay-finder-nu.vercel.app)
 
